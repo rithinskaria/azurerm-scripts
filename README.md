@@ -1,4 +1,8 @@
-# azuread
+# Azure Active Directory
+
+## About Scripts
+
+
 Some PS Scripts to download reports for Azure Active Directory.
 
 Can be used to:
@@ -12,3 +16,7 @@ Can be used to:
 - Get RBAC Assignments with each Roles, Scope and Users
 - Get RBAC Info on each role
 - Get AAD user list with user created date
+
+## Contributing
+
+Please raise an issue or pull request if you have any issues, questions or features.
