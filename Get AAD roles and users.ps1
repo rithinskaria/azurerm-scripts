@@ -1,3 +1,7 @@
+# Groups and Description
+
+Get-AzureADDirectoryRole # To ignore Object ID, use Select-Object DisplayName,Description
+
 #AAD Groups and Users
 Connect-AzureAD
 $group= Get-AzureADDirectoryRole # This will select only the roles which has assignments
