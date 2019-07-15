@@ -5,8 +5,8 @@
 
 Some simple PS Scripts to download reports for Azure Active Directory, if you need more complexity use commands like:
 
-$Excel = New-Object -ComObject Excel.Application
-$Workbook = $Excel.Workbooks.Open($FilePath), for creating a single spreadsheet
+`$Excel = New-Object -ComObject Excel.Application` <br>
+`$Workbook = $Excel.Workbooks.Open($FilePath), for creating a single spreadsheet`
 
 Can be used to:
 
