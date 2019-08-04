@@ -12,5 +12,19 @@ $c=$count.Length
 Add-Content C:\Test\Report.txt "$($name[$i]) $($c)"
 }
 
-#To differentiate On-prem and Cloud users, Get-AzureADGroupMember -ObjectId $id[0] | Select-Object DisplayName,Mail,OnPremisesSecurityIdentifier 
+#To differentiate On-prem and Cloud users, Get-AzureADGroupMember -ObjectId $id[$i] | Select-Object DisplayName,Mail,OnPremisesSecurityIdentifier 
 # Add OnPremisesSecurityIdentifier to the objects, only Directory Synced users will have a value, others will be null
+
+#If not all groups are coming in the list; use:
+
+$output = @()
+$gid = (Get-AzureADGroup -All $true)
+foreach ($groupid in $gid) {
+    $memeber = Get-AzureADGroupMember -ObjectId $groupid.objectid | Select-Object {$_.DisplayName -like '*sams*'}
+    $data = New-Object -TypeName psobject
+    $data | Add-Member -MemberType NoteProperty -Name 'group name' -Value $groupid.DisplayName
+    $data | Add-Member -MemberType NoteProperty -Name 'user UPN' -Value $memeber.UserPrincipalName
+    $output += $data
+}
+$output | Out-GridView | Out-File -FilePath 'C:\\temp\\ADGroups+Members.txt' -Append
+
