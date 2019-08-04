@@ -20,7 +20,7 @@ Add-Content C:\Test\Report.txt "$($name[$i]) $($c)"
 $output = @()
 $gid = (Get-AzureADGroup -All $true)
 foreach ($groupid in $gid) {
-    $memeber = Get-AzureADGroupMember -ObjectId $groupid.objectid | Select-Object {$_.DisplayName -like '*sams*'}
+    $memeber = Get-AzureADGroupMember -ObjectId $groupid.objectid #| Select-Object {$_.DisplayName -like '*'}, if needed filtering
     $data = New-Object -TypeName psobject
     $data | Add-Member -MemberType NoteProperty -Name 'group name' -Value $groupid.DisplayName
     $data | Add-Member -MemberType NoteProperty -Name 'user UPN' -Value $memeber.UserPrincipalName
