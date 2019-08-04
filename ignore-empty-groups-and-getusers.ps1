@@ -3,7 +3,7 @@ Connect-AzureAD
 $group= Get-AzureADGroup
 $id= @($group.ObjectID)
 $name= @($group.DisplayName)
-for ($i=0; $i -le $id.Length; $i++){
+for ($i=0; $i -lt $id.Length; $i++){
 $path = $name[$i]
 $count = Get-AzureADGroupMember -ObjectId $id[$i] | Select-Object DisplayName
 $c=$count.Length
