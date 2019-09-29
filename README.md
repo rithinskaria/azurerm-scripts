@@ -3,10 +3,7 @@
 ## About Scripts
 
 
-Some simple PS Scripts to download reports for Azure Active Directory, if you need more complexity use commands like:
-
-`$Excel = New-Object -ComObject Excel.Application` <br>
-`$Workbook = $Excel.Workbooks.Open($FilePath), for creating a single spreadsheet`
+Some simple PS Scripts to download reports for Azure Active Directory and other operations
 
 Can be used to:
 
@@ -19,6 +16,7 @@ Can be used to:
 - Get RBAC Assignments with each Roles, Scope and Users
 - Get RBAC Info on each role
 - Get AAD user list with user created date
+- Delete all unattached managed disks
 
 ## Contributing
 
