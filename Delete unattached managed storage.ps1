@@ -1,7 +1,7 @@
 $managedDisks = Get-AzDisk
 $deleted =0
 $attached=0
-$deleteddisks =@()
+
 foreach ($disk in $managedDisks) {
 
     if($disk.ManagedBy -eq $null){
@@ -11,7 +11,7 @@ foreach ($disk in $managedDisks) {
             Write-Host " "
             Write-Host "Done!!! Deleted unattached Managed Disk with Id: $($disk.Name) "
             $deleted+=1
-            $deleteddisks+=$disk.Name
+            
     }
 
     else{
@@ -28,9 +28,4 @@ foreach ($disk in $managedDisks) {
  Write-Host "No.of deleted disks: $($deleted)"
  Write-Host "No. of attached disks: $($attached)"
  Write-Host "`n"
- Write-Host "List of deleted disks"
- Write-Host "---------"
- foreach ($disk in $deleteddisks)
- {
-  echo $item
- }
+
